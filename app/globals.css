@@ -3,6 +3,8 @@
    themes: light --default, dark --prefersdark;
  }
 
+ @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

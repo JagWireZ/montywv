@@ -1,6 +1,6 @@
 import React from "react";
-import SearchInput from "./SearchInput";
 import ThemeToggle from "./ThemeToggle";
+import "./NewBar.css";
 
 type NavLink = {
   label: string;
@@ -8,14 +8,16 @@ type NavLink = {
 };
 
 type NavbarProps = {
-  logo?: React.ReactNode; // text or JSX
+  title?: React.ReactNode; // text or JSX
+  subtitle?: React.ReactNode; // text or JSX
   links?: NavLink[];
   avatarSrc?: string; // optional right-side icon/avatar
   className?: string;
 };
 
 const Navbar: React.FC<NavbarProps> = ({
-  logo = "MyLogo",
+  title = "Monty",
+  subtitle = "the Mountaineer",
   links = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
@@ -39,13 +41,10 @@ const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-xl">{logo}</a>
+        <a className="btn btn-ghost text-5xl comforter-font p-0">{title}</a>
+        <a className="btn btn-ghost text-5xl comforter-font pl-1 hidden md:flex">{subtitle}</a>
       </div>
       <div className="navbar-end">
-        <SearchInput />
-        <button className="btn btn-secondary btn-circle ml-1 mr-1">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
-        </button>
         <ThemeToggle />
       </div>
     </div>
